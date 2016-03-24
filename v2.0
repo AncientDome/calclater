@@ -1,0 +1,287 @@
+import java.util.*;
+class calclater {
+	void main(){
+		System.out.println("Welcome to Calclater");
+		System.out.println("Enter a command or type 'com' to get a list of commands");
+		System.out.println("quit: to exit Calclater");
+		fx();
+	}
+	void pcoms(){
+		System.out.println("Enter commands based on the choices below:");
+		System.out.println("add : to get the sum of numbers");
+		System.out.println("sub : to get the difference between two numbers");
+		System.out.println("into: to get the product of two numbers");
+		System.out.println("div : to get the quotient and remainder");
+		System.out.println("sqr : to get the squares of numbers");
+		System.out.println("pow : to raise to the power of");
+		System.out.println("sqrt: to get the square root ");
+		System.out.println("fact: to get the factorial of a number");
+		System.out.println("tpow: to raise 10 to a power");
+		System.out.println("game: to play the sweetest game ever, ha!");
+		System.out.println("quit: to exit Calclater");
+		
+	}
+	
+	
+	       void fx (){
+	           try{
+		   System.out.print(">>> ");
+		   Scanner sc2=new Scanner(System.in);
+		   String choice2=sc2.nextLine();
+		while(!(choice2.equals("quit"))){
+		 if (choice2.equals("add")){
+			add();
+		}
+		 else if (choice2.equals("sub")){
+			 sub();
+		 }
+		 else if (choice2.equals("into")){
+			 into();
+		 }
+		 else if (choice2.equals("div")){
+			 div();
+		 }
+		 else if (choice2.equals("sqr")){
+			 sqr();
+		 }
+		 else if (choice2.equals("pow")){
+			 pow();
+		 }
+		 else if (choice2.equals("sqrt")){
+			 sqrt();
+		 }
+		 else if (choice2.equals("fact")){
+			 fact();
+		 }
+		 else if (choice2.equals("tpow")){
+			 tpow();
+		 }
+		 else if (choice2.equals("quit")){
+			 System.out.println("See ya!");
+		     break;
+		 }
+		 else if (choice2.equals("com")){
+			 pcoms();
+			 
+		 }
+		 else if (choice2.equals("game")){
+			 game1();
+			 
+		 }
+		 else{
+			 System.out.println("Unrecognised command(s)");
+			 System.out.println();
+		  }
+		 
+		 
+		   System.out.print(">>> ");
+		   choice2=sc2.nextLine();
+		}
+       }
+       catch(Exception e){
+            System.out.println("::Erroneous input:: ");
+           System.out.println("Restarting.... ");
+            System.out.println();
+            main();
+        }
+      }
+		
+		
+	
+	
+	void add(){
+		Scanner sc3=new Scanner(System.in);
+		System.out.println("Enter number of terms:");
+		int numtrms=sc3.nextInt();
+		if(numtrms<=1){
+			wrongmsg();
+		}
+		else if (numtrms==2){
+			System.out.println("Enter the numbers:");
+			int a = sc3.nextInt();
+			int b = sc3.nextInt();
+			System.out.println("Sum is "+(a+b));
+		}
+		else {
+			int ele[]=new int[numtrms],s=0;
+			System.out.println("Enter the numbers");
+			for(int i=0;i<numtrms;i++){
+				ele[i]=sc3.nextInt();
+				s=s+ele[i];
+				
+			}
+			System.out.println("Sum is "+s);
+		}
+	}
+	void sub(){
+		Scanner sc4=new Scanner(System.in);
+		System.out.println("Enter the numbers");
+		int s1=sc4.nextInt();
+		int s2=sc4.nextInt();
+		System.out.println("Difference is "+(s1-s2));
+	}
+	void into(){
+		Scanner sc5=new Scanner(System.in);		
+		System.out.println("Enter the number of terms");
+		int intnmtrms=sc5.nextInt();
+		if (intnmtrms<=1){
+			wrongmsg();
+		}
+		else {
+			
+			int ineles[]=new int[intnmtrms],prod=1;
+			System.out.println("Enter the numbers");
+			for(int ii=0;ii<intnmtrms;ii++){
+				
+				ineles[ii]=sc5.nextInt();
+				prod=prod*ineles[ii];
+				
+			}
+			System.out.println("Product is "+prod);
+		}
+	}	
+	void wrongmsg(){
+		System.out.println("Don't happen, retry");
+	}
+	void div(){
+		Scanner sc6=new Scanner(System.in);
+		System.out.println("Enter the numbers");
+		int d1=sc6.nextInt();
+		int d2=sc6.nextInt();
+		if (d2==0){
+			wrongmsg();
+		}
+		else {
+			System.out.println("Quotient is "+(d1/d2));
+			System.out.println("Remainder is "+(d1%d2));
+		}
+	}
+	void sqr(){
+		Scanner s7=new Scanner(System.in);
+		System.out.println("Enter the number of terms");
+		int sqtrms=s7.nextInt();
+		if(sqtrms<=0){
+			wrongmsg();
+		}
+		else {
+			System.out.println("Enter the numbers sequentially, results shall be displayed alternatively");
+			int sq[]=new int[sqtrms];
+			for (int iii=0;iii<sqtrms;iii++){
+				sq[iii]=s7.nextInt();
+				System.out.println("Square :"+(sq[iii]*sq[iii]));
+			}
+		}
+	}
+	void pow(){
+		Scanner s8=new Scanner(System.in);
+		System.out.println("For x^y, enter x:");
+		int x=s8.nextInt();
+		System.out.println("For x^y, enter y:");
+		int y=s8.nextInt();
+		System.out.println(x+"^"+y+"="+(Math.pow(x,y)));
+	}
+	void sqrt(){
+		Scanner so=new Scanner(System.in);
+		System.out.println("Enter the number of terms");
+		int rtms=so.nextInt();
+		if (rtms<=0){
+			wrongmsg();
+			
+		}
+		else {
+			int srt[]=new int[rtms];
+			System.out.println("Enter numbers and get results turn by turn");
+			for(int k=0;k<rtms;k++){
+				srt[k]=so.nextInt();
+				System.out.println(Math.sqrt(srt[k]));
+			}
+		}
+	}
+	void fact(){
+		Scanner sd=new Scanner(System.in);
+		System.out.println("Enter the number");
+		int nm=sd.nextInt();
+		int f=1;
+		for (int jk=1;jk<=nm;jk++){
+			f=f*jk;
+		}
+		System.out.println(nm+"!="+f);
+	}
+	void tpow(){
+		Scanner se=new Scanner(System.in);
+		System.out.println("Enter the power");
+		int poww=se.nextInt();
+		System.out.println("10^"+poww+" is="+(Math.pow(10,poww)));
+	}	
+	  void game1(){
+		  int x=0, a=0,b=0;
+		  Scanner s=new Scanner(System.in);
+		  x=(int) Math.floor(Math.random()*100);
+		  System.out.println("Okay, I have a number in mind! (Its always less than 100) ");
+		  System.out.println("Lets see if You can guess what it is!!");
+		   System.out.println("Note: you can quit now, if ya want to, game dont stop in between.");
+		  String yy=s.nextLine();
+		  if (yy.equals("quit")){
+		       System.out.println("Okay, so you quit the game.");
+		        System.out.println();
+		  }
+		  
+		  else{		     
+		     int y=Integer.parseInt(yy); 
+		              
+		     	 
+			 for (int i = 0; i<10; i++) {
+				 if(y==x){
+			  System.out.println();	
+		      System.out.println("GOAL!!!");
+		      System.out.println();
+			  break;
+			
+		    } 
+				if(y<x){
+						System.out.println("Go higher");
+						if(i==9){
+							System.out.println("You have 1 chance left");
+						}
+						else{
+							System.out.println("You have "+(10-i)+" chances left");
+							
+						}
+						System.out.println();
+					
+							y=s.nextInt();
+							a++;
+						
+				}
+				
+			else if (y>x){
+					System.out.println("Go low");
+					if(i==9){
+							System.out.println("You have 1 chance left");
+						}
+						else{
+							System.out.println("You have "+(10-i)+" chances left");
+							
+						}
+						System.out.println();
+						y=s.nextInt(); 
+							b++;
+			}
+			
+			
+			
+           }
+           if ((a+b)==10){
+               System.out.println();	
+               System.out.println("Well, you failed, :(");
+               System.out.println("But Hey! cheer up!");
+               System.out.println("BTW, number I had in mind was "+x);
+               System.out.println("Better luck next time :)");
+			   System.out.println();
+                  	
+                  }
+
+		  }
+       }
+		
+	}
